@@ -5,18 +5,19 @@
     box-sizing: border-box;
 }
 
-/* Body styling */
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 20px;
     background-color: #f4f4f4;
+    color: #333;
 }
 
 /* Header styling */
 header {
     background-color: #333;
-    color: white;
+    color: #fff;
     padding: 10px 0;
     text-align: center;
 }
@@ -31,27 +32,40 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff9800;
+}
+
+/* Section shared styling */
+section {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
 }
 
 /* Home Section */
 #home {
     text-align: center;
-    padding: 40px 20px;
     background-color: #e9ecef;
-    border-radius: 8px;
-    margin-bottom: 20px;
 }
 
 #homepage-title {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #333;
 }
 
 #homepage-description {
     font-size: 1.2rem;
     margin-bottom: 20px;
+    color: #555;
 }
 
 #homepage-image {
@@ -62,59 +76,38 @@ nav ul li a {
 }
 
 /* About Us Section */
-#about {
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: white;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-}
-
-#about h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-#about-content {
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-/* Services Section */
-#services {
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: white;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-}
-
-#services h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-#services-content {
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-/* Contact Us Section */
-#contact {
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-}
-
+#about h2,
+#services h2,
 #contact h2 {
     font-size: 1.8rem;
     margin-bottom: 15px;
+    color: #333;
 }
 
+#about-content,
+#services-content,
 #contact-content {
     font-size: 1.1rem;
     line-height: 1.8;
+    color: #555;
+}
+
+#about-description,
+#services-description,
+#contact-description {
+    font-size: 1rem;
+    color: #777;
+    margin: 10px 0;
+}
+
+#about img,
+#services img,
+#contact img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer styling */
@@ -122,7 +115,7 @@ footer {
     text-align: center;
     padding: 10px;
     background-color: #333;
-    color: white;
+    color: #fff;
     margin-top: 20px;
 }
 
