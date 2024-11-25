@@ -1,0 +1,131 @@
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Header styling */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Home Section */
+#home {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#homepage-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#homepage-description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+#homepage-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* About Us Section */
+#about {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#about h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+#about-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Services Section */
+#services {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#services h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+#services-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Contact Us Section */
+#contact {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+#contact h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+#contact-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
