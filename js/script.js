@@ -1,6 +1,6 @@
 // Function to fetch data from Google Sheets through backend
 function fetchContent() {
-    fetch('https://aishatukarim.vercel.app/api/server')  // Make a request to backend API
+    fetch('https://aishatukarim.vercel.app/api/server') // Make a request to backend API
         .then(response => response.json())
         .then(data => {
             const rows = data.data;
@@ -13,16 +13,10 @@ function fetchContent() {
                 const imageURL = row[3];
 
                 // Dynamically handle content for each page
-                if (pageName === 'Home') {
-                    populatePage('homepage', content, description, imageURL);
-                } else if (pageName === 'About Us') {
-                    populatePage('about', content, description, imageURL);
-                } else if (pageName === 'Services') {
-                    populatePage('services', content, description, imageURL);
-                } else if (pageName === 'Contact Us') {
-                    populatePage('contact', content, description, imageURL);
-                }
+                populatePage(pageName.toLowerCase().replace(/\s+/g, ''), content, description, imageURL);
             });
+
+            initializeSwiper(); // Initialize swiper after fetching content
         })
         .catch(error => {
             console.error('Error fetching Google Sheets data:', error);
@@ -31,6 +25,8 @@ function fetchContent() {
             ['homepage', 'about', 'services', 'contact'].forEach(page => {
                 populatePage(page, 'Sorry, content failed to load.', 'Sorry, content failed to load.', '');
             });
+
+            initializeSwiper(); // Initialize swiper even if content fails to load
         });
 }
 
@@ -42,16 +38,18 @@ function populatePage(pagePrefix, content, description, imageURL) {
 
     if (titleElement) titleElement.innerText = content; // Populate title
     if (descriptionElement) descriptionElement.innerText = description; // Populate description
-    if (imageElement) imageElement.src = imageURL; // Populate image
+    if (imageElement) {
+        console.log(`Setting image for ${pagePrefix}:`, imageURL);
+        imageElement.src = imageURL; // Populate image source
+        imageElement.onerror = () => {
+            console.error(`Failed to load image for ${pagePrefix}:`, imageURL);
+            imageElement.alt = `Image failed to load for ${pagePrefix}`;
+        };
+    }
 }
 
-// Fetch the content when the page loads
-document.addEventListener('DOMContentLoaded', fetchContent);
-
-
-// swiper function
+// Swiper function
 let slideIndex = 0;
-showSlides();
 
 function plusSlides(n) {
     showSlides(slideIndex += n);
@@ -64,16 +62,29 @@ function currentSlide(n) {
 function showSlides() {
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
-    if (slideIndex >= slides.length) {slideIndex = 0}
-    if (slideIndex < 0) {slideIndex = slides.length - 1}
+
+    if (slides.length === 0 || dots.length === 0) return; // Prevent issues if no slides/dots
+
+    if (slideIndex >= slides.length) { slideIndex = 0; }
+    if (slideIndex < 0) { slideIndex = slides.length - 1; }
+
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
+
     for (let i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
+
     slides[slideIndex].style.display = "block";
     dots[slideIndex].className += " active";
 }
 
+// Initialize swiper only after dynamic content is ready
+function initializeSwiper() {
+    slideIndex = 0;
+    showSlides();
+}
 
+// Fetch the content when the page loads
+window.onload = fetchContent; // Load content and initialize swiper

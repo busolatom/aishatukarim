@@ -186,6 +186,12 @@ body{
     column-gap: 100px;
     min-height: 400px; /* Ensure the section has enough height */
   }
+
+  #about h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
   
   #about-us {
     max-width: 600px;
