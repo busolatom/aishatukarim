@@ -48,18 +48,17 @@ function populatePage(pagePrefix, content, description, imageURL) {
         descriptionElement.innerText = description; // Populate description
     }
 
-    // Populate image if URL is valid
-    if (imageElement && imageURL) {
-        console.log(`Setting image for ${pagePrefix}: ${imageURL}`);
-        imageElement.src = imageURL; // Populate image
-        imageElement.onerror = function() {
-            console.error(`Failed to load image for ${pagePrefix}: ${imageURL}`);
-            imageElement.src = 'default-image.jpg'; // Set a fallback image if loading fails
-        };
-    } else {
-        console.warn(`Image URL is invalid or missing for ${pagePrefix}.`);
-        if (imageElement) {
-            imageElement.src = 'default-image.jpg'; // Set a fallback image if no URL is provided
+    if (imageElement) {
+        if (imageURL) {
+            console.log(`Setting image for ${pagePrefix}: ${imageURL}`);
+            imageElement.src = imageURL; // Populate image
+            imageElement.onerror = function () {
+                console.error(`Failed to load image for ${pagePrefix}: ${imageURL}`);
+                imageElement.src = document.getElementById('about-image').src; // Fallback to the static image URL from HTML
+            };
+        } else {
+            console.warn(`Image URL is invalid or missing for ${pagePrefix}. Using static fallback.`);
+            imageElement.src = document.getElementById('about-image').src; // Set fallback image from HTML
         }
     }
 }
