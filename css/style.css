@@ -199,12 +199,15 @@ body{
   
   #about-image {
     width: 100%;
-    height: auto;
+    height: 367px;
     max-width: 367px; /* Ensure it doesn't exceed 367px */
     border-radius: 15px;
     transition: transform 0.6s ease;
     position: relative;
     z-index: 1; /* Ensure it’s on top */
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;  
   }
   
   #about-image:hover {

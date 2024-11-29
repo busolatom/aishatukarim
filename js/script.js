@@ -39,15 +39,18 @@ function populatePage(pagePrefix, content, description, imageURL) {
     if (titleElement) titleElement.innerText = content; // Populate title
     if (descriptionElement) descriptionElement.innerText = description; // Populate description
     if (imageElement) {
-        console.log(`Setting image for ${pagePrefix}:`, imageURL);
-        imageElement.src = imageURL; // Populate image source
-        imageElement.onerror = () => {
-            console.error(`Failed to load image for ${pagePrefix}:`, imageURL);
-            imageElement.alt = `Image failed to load for ${pagePrefix}`;
-        };
-    }
-}
-
+        if (imageURL) {
+            console.log(`Setting image for ${pagePrefix}:`, imageURL);
+            imageElement.src = imageURL; // Set the image source
+            imageElement.onerror = () => {
+                console.error(`Failed to load image for ${pagePrefix}:`, imageURL);
+                imageElement.alt = `Image failed to load for ${pagePrefix}`; // Set alt text on error
+            };
+        } else {
+            console.warn(`No valid image URL provided for ${pagePrefix}.`);
+            imageElement.alt = `No image available for ${pagePrefix}`; // Handle missing imageURL
+        }
+    }    
 // Swiper function
 let slideIndex = 0;
 
