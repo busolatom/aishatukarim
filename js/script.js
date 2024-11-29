@@ -51,14 +51,16 @@ function populatePage(pagePrefix, content, description, imageURL) {
     if (imageElement) {
         if (imageURL) {
             console.log(`Setting image for ${pagePrefix}: ${imageURL}`);
-            imageElement.src = imageURL; // Populate image
+            imageElement.src = imageURL; // Populate image from the fetched URL
             imageElement.onerror = function () {
                 console.error(`Failed to load image for ${pagePrefix}: ${imageURL}`);
-                imageElement.src = document.getElementById('about-image').src; // Fallback to the static image URL from HTML
+                // Ensure the fallback image has the correct absolute path
+                imageElement.src = '../assets/pexels-polina-tankilevitch-3872350.jpg'; // Adjust the path if needed for your live environment
             };
         } else {
             console.warn(`Image URL is invalid or missing for ${pagePrefix}. Using static fallback.`);
-            imageElement.src = document.getElementById('about-image').src; // Set fallback image from HTML
+            // Provide a fully qualified or correctly referenced fallback image URL
+            imageElement.src = '../assets/pexels-polina-tankilevitch-3872350.jpg';
         }
     }
 }
