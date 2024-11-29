@@ -40,6 +40,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-position: center;
 }
 
 .overlay {
@@ -62,10 +63,11 @@ body {
   padding: 20px;
   z-index: 1;
   text-align: center;
+  width: 90%; /* Ensure text stays within the screen width */
 }
 
 .text h1 {
-  font-size: 2em; /* Default for large screens */
+  font-size: 2.5em; /* Default for large screens */
   margin: 20px 0;
 }
 
@@ -96,13 +98,19 @@ body {
 
 /* Small devices (mobile phones) */
 @media (max-width: 576px) {
+  body {
+    font-size: 12px; /* Slightly smaller font for mobile */
+  }
+
   .text {
     font-size: 16px; /* Reduce text size for small screens */
-    padding: 10px;
+    padding: 15px;
+    width: 100%; /* Ensure text doesn't overflow */
+    text-align: center;
   }
 
   .text h1 {
-    font-size: 1.8em; /* Slightly smaller for mobile */
+    font-size: 1.8em; /* Smaller h1 for mobile */
   }
 
   .text p {
@@ -110,7 +118,11 @@ body {
   }
 
   #hero {
-    height: 80vh; /* Adjust hero section height for smaller screens */
+    height: 60vh; /* Adjust hero height for smaller screens */
+  }
+
+  #discover-button {
+    width: 150px; /* Make button smaller on mobile */
   }
 }
 
@@ -118,7 +130,7 @@ body {
 @media (max-width: 768px) {
   .text {
     font-size: 18px; /* Adjust text size for tablet screens */
-    padding: 15px;
+    padding: 18px;
   }
 
   .text h1 {
@@ -127,6 +139,14 @@ body {
 
   .text p {
     font-size: 16px; /* Adjust paragraph text size for tablets */
+  }
+
+  #hero {
+    height: 75vh; /* Adjust hero section height for tablets */
+  }
+
+  #discover-button {
+    width: 180px; /* Adjust button width for tablets */
   }
 }
 
@@ -142,6 +162,14 @@ body {
 
   .text p {
     font-size: 18px; /* Default paragraph size for larger screens */
+  }
+
+  #hero {
+    height: 100vh; /* Full height for larger screens */
+  }
+
+  #discover-button {
+    width: 200px; /* Adjust button width for large screens */
   }
 }
 
