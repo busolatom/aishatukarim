@@ -182,7 +182,7 @@ body{
     align-items: center;
     padding: 100px;
     background-color: #EFEFEF;
-    width: 100vw;
+    width: 100%;
     column-gap: 100px;
     min-height: 400px; /* Ensure the section has enough height */
   }
