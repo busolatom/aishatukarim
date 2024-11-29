@@ -13,20 +13,17 @@ function fetchContent() {
                 const imageURL = row[3];
 
                 // Dynamically handle content for each page
-                populatePage(pageName.toLowerCase().replace(/\s+/g, ''), content, description, imageURL);
+                const pagePrefix = pageName.toLowerCase().replace(/\s+/g, ''); // Ensure proper format for IDs
+                populatePage(pagePrefix, content, description, imageURL);
             });
-
-            initializeSwiper(); // Initialize swiper after fetching content
         })
         .catch(error => {
             console.error('Error fetching Google Sheets data:', error);
 
-            // Set a default error message for all pages
+            // Set a default error message for all pages if data fails to load
             ['homepage', 'about', 'services', 'contact'].forEach(page => {
                 populatePage(page, 'Sorry, content failed to load.', 'Sorry, content failed to load.', '');
             });
-
-            initializeSwiper(); // Initialize swiper even if content fails to load
         });
 }
 
@@ -36,8 +33,21 @@ function populatePage(pagePrefix, content, description, imageURL) {
     const descriptionElement = document.getElementById(`${pagePrefix}-description`);
     const imageElement = document.getElementById(`${pagePrefix}-image`);
 
-    if (titleElement) titleElement.innerText = content; // Populate title
-    if (descriptionElement) descriptionElement.innerText = description; // Populate description
+    // Populate title if the element exists
+    if (titleElement) {
+        titleElement.innerText = content || 'No content available';
+    } else {
+        console.warn(`Title element for ${pagePrefix} not found.`);
+    }
+
+    // Populate description if the element exists
+    if (descriptionElement) {
+        descriptionElement.innerText = description || 'No description available';
+    } else {
+        console.warn(`Description element for ${pagePrefix} not found.`);
+    }
+
+    // Handle image if the element exists
     if (imageElement) {
         if (imageURL) {
             console.log(`Setting image for ${pagePrefix}:`, imageURL);
@@ -50,45 +60,10 @@ function populatePage(pagePrefix, content, description, imageURL) {
             console.warn(`No valid image URL provided for ${pagePrefix}.`);
             imageElement.alt = `No image available for ${pagePrefix}`; // Handle missing imageURL
         }
-    }    
-// Swiper function
-let slideIndex = 0;
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-    showSlides(slideIndex = n - 1);
-}
-
-function showSlides() {
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-
-    if (slides.length === 0 || dots.length === 0) return; // Prevent issues if no slides/dots
-
-    if (slideIndex >= slides.length) { slideIndex = 0; }
-    if (slideIndex < 0) { slideIndex = slides.length - 1; }
-
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+    } else {
+        console.warn(`Image element for ${pagePrefix} not found.`);
     }
-
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-
-    slides[slideIndex].style.display = "block";
-    dots[slideIndex].className += " active";
-}
-
-// Initialize swiper only after dynamic content is ready
-function initializeSwiper() {
-    slideIndex = 0;
-    showSlides();
 }
 
 // Fetch the content when the page loads
-window.onload = fetchContent; // Load content and initialize swiper
-}
+window.onload = fetchContent; // Load content
