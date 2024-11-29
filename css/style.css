@@ -6,49 +6,141 @@
 }
 
 /* General body styling */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 20px;
-    background-color: #f4f4f4;
-    color: #333;
-}
+body{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
 
-/* Header styling */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
+  .poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  .courgette-regular {
+    font-family: "Courgette", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+ #hero-top {
+    background-color: #2E0000;
+    color: white;
+    width: 100%;
+    /* height: 30%; */
+    display: flex;
+    justify-content: space-between;
+    gap: 300px;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
-
-nav ul {
-    list-style: none;
-}
-
-nav ul li {
-    display: inline;
+.vertical-line {
+    width: 1px; /* Adjust the width of the line as needed */
+    height: 100%; /* Adjust the height of the line as needed */
+    background-color: #573333; /* Adjust the color of the line as needed */
+    margin: 0 auto; /* Centers the line horizontally */
+  }  
+#social-icons a {
+    margin-left: 20px; /* Adjusted spacing between icons */
+    color: white; /* Set icon color */
+    /* cursor: pointer; */
+    transition: transform 0.3s ease-in-out;
+  } 
+  #social-icons a:hover {
+    transform: rotateY(180deg);
+  }
+  #nav-bar {
+    width: 100%;
+    /* height: 40%; */
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-around ;
+    align-items: center;
+    padding: 20px;
+  }
+  #nav-bar img {
+    max-width: 200px;
+    height: auto;
+  }
+  #nav-links span a {
     margin-right: 20px;
-}
-
-nav ul li a {
-    color: #fff;
     text-decoration: none;
-    transition: color 0.3s ease;
-}
+    color: #2D0000;
+  }
+  #hero {
+    background-image: url(../assets/breakfast-cereal-7337357_1280.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;  /* Horizontally center */
+    align-items: center;  /* Vertically center */
+   text-align: center; /* Center text inside the .text */
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none; /* Allow pointer events to pass through */
+  }
+  
+  .text {
+    font-family: "DM Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+    position: relative;
+    max-width: 800px;
+    padding: 20px;
+    top: 35%;
+    z-index: 1;  /* Ensure text stays above the overlay */
+  }
+  
+  .text h1 {
+    font-size: 3em;
+    margin: 20px 0; /* Add margin to separate h1 from p */
+  }
+  
+  .text p {
+    font-size: 20px;
+    margin-bottom: 20px; /* Add margin below p */
+  }
+  
+  #discover-button {
+    background-color: #B60037;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    height: 51px;
+    letter-spacing: 2px;
+    border: 0;
+    width: 200px;
+    cursor: pointer;
+    margin-top: 20px; /* Add margin above the button */
+  }
 
-nav ul li a:hover {
-    color: #ff9800;
-}
-
+  #discover-button a {
+    text-decoration: none;
+    color: white;
+  }
+  
 /* Section shared styling */
-section {
+/* section {
     padding: 20px;
     margin-bottom: 20px;
     background-color: #fff;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-}
+    /* border-radius: 8px; */
+    /* border: 1px solid #ddd; */
 
 /* Home Section */
 #home {
@@ -76,15 +168,60 @@ section {
 }
 
 /* About Us Section */
-#about h2,
+/* #about h2,
 #services h2,
 #contact h2 {
     font-size: 1.8rem;
     margin-bottom: 15px;
     color: #333;
-}
+} */
 
-#about-content,
+#about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+    background-color: #EFEFEF;
+    width: 100vw;
+    column-gap: 100px;
+    min-height: 400px; /* Ensure the section has enough height */
+  }
+  
+  #about-us {
+    max-width: 600px;
+  }
+  
+  #about-image {
+    width: 100%;
+    height: auto;
+    max-width: 367px; /* Ensure it doesn't exceed 367px */
+    border-radius: 15px;
+    transition: transform 0.6s ease;
+    position: relative;
+    z-index: 1; /* Ensure it’s on top */
+  }
+  
+  #about-image:hover {
+    transform: scale(1.1);
+  }
+  
+  #about-title {
+    color: rgb(38, 50, 70);
+    font-family: "DM Sans", sans-serif;
+    font-size: 44px;
+    font-weight: 400;
+  }
+  
+  #about-description {
+    color: rgb(110, 117, 128);
+    display: block;
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+  }  
+
+/* #about-content,
 #services-content,
 #contact-content {
     font-size: 1.1rem;
@@ -108,7 +245,143 @@ section {
     border-radius: 8px;
     margin-top: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+} */
+
+#reviews{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* background-repeat: no-repeat;
+    background-size: 100%  100%; */
+  
+  }
+  .mySlides p{
+    align-items: center;
+    font-size: 12px;
+    font-family: Montserrat;
+  }
+  
+  .star-review{
+    color: #d61c22;
+  }
+  
+  .slideshow-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: auto;
+    background-size: cover; /* Ensures the background image covers the whole area */
+  }
+  
+  .images-one{
+    width:9%;
+    height: 120px;
+    border: #d61c22 solid;
+  border-radius: 50%;
+  /* align-items: center; */
+  }
+  
+  /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+    
+    /* The dots/bullets/indicators */
+    .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    
+    /* .active {
+      background-color: #717171;
+    } */
+    
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+    
+    @keyframes fade {
+      from { opacity: .4 } 
+      to { opacity: 1 }
+    }
+    
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .text { font-size: 11px; }
+    }
+    
+    /* Next & previous buttons */
+    .prev-slick1, .next-slick1 {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: 90vw;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      user-select: none;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 50%;
+      z-index: 200;
+    }
+    
+    /* Position the "next button" to the right */
+    .next-slick1 {
+      right: 10px;
+      border: 0;
+    }
+    
+    /* Position the "prev button" to the left */
+    .prev-slick1 {
+      left: 10px;
+      border: 0;
+    }
+    
+    .prev-slick1:hover, .next-slick1:hover {
+      background-color: red;
+    }
+    
+    .arrow-slick1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      font-size: 18px;
+      color: white;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 200;
+      transition: all 0.4s;
+    }
 
 /* Footer styling */
 footer {
