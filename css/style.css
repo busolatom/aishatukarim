@@ -111,12 +111,12 @@ body {
 }
 
 .text h1 {
-  font-size: 3em;
+  font-size: 2emm;
   margin: 20px 0;
 }
 
 .text p {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 20px;
 }
 
@@ -185,7 +185,7 @@ body {
 
 #about-image {
   width: 100%;
-  height: 367px;
+  max-height: 367px;
   max-width: 367px;
   border-radius: 15px;
   transition: transform 0.6s ease;
@@ -221,30 +221,6 @@ body {
   text-align: center;
 }
 
-.mySlides p {
-  align-items: center;
-  font-size: 12px;
-  font-family: Montserrat;
-}
-
-.star-review {
-  color: #d61c22;
-}
-
-.slideshow-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  margin: auto;
-  background-size: cover;
-}
-
-.images-one {
-  width: 9%;
-  height: 120px;
-  border: #d61c22 solid;
-  border-radius: 50%;
-}
 
 .text {
   color: #f2f2f2;
@@ -254,39 +230,6 @@ body {
   bottom: 8px;
   width: 100%;
   text-align: center;
-}
-
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-.dot {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {
-      opacity: .4
-  }
-
-  to {
-      opacity: 1
-  }
 }
 
 /* Footer styling */
