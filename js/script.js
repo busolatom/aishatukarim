@@ -1,6 +1,6 @@
 // Function to fetch data from Google Sheets through backend
 function fetchContent() {
-    fetch('https://aishatukarim.vercel.app/api/server') // Make a request to backend API
+    fetch('https://aishatukarim.vercel.app/api/server')  // Make a request to backend API
         .then(response => response.json())
         .then(data => {
             const rows = data.data;
@@ -13,14 +13,21 @@ function fetchContent() {
                 const imageURL = row[3];
 
                 // Dynamically handle content for each page
-                const pagePrefix = pageName.toLowerCase().replace(/\s+/g, ''); // Ensure proper format for IDs
-                populatePage(pagePrefix, content, description, imageURL);
+                if (pageName === 'Home') {
+                    populatePage('homepage', content, description, imageURL);
+                } else if (pageName === 'About Us') {
+                    populatePage('about', content, description, imageURL);
+                } else if (pageName === 'Services') {
+                    populatePage('services', content, description, imageURL);
+                } else if (pageName === 'Contact Us') {
+                    populatePage('contact', content, description, imageURL);
+                }
             });
         })
         .catch(error => {
             console.error('Error fetching Google Sheets data:', error);
 
-            // Set a default error message for all pages if data fails to load
+            // Set a default error message for all pages
             ['homepage', 'about', 'services', 'contact'].forEach(page => {
                 populatePage(page, 'Sorry, content failed to load.', 'Sorry, content failed to load.', '');
             });
@@ -33,36 +40,9 @@ function populatePage(pagePrefix, content, description, imageURL) {
     const descriptionElement = document.getElementById(`${pagePrefix}-description`);
     const imageElement = document.getElementById(`${pagePrefix}-image`);
 
-    // Populate title if the element exists
-    if (titleElement) {
-        titleElement.innerText = content || 'No content available';
-    } else {
-        console.warn(`Title element for ${pagePrefix} not found.`);
-    }
-
-    // Populate description if the element exists
-    if (descriptionElement) {
-        descriptionElement.innerText = description || 'No description available';
-    } else {
-        console.warn(`Description element for ${pagePrefix} not found.`);
-    }
-
-    // Handle image if the element exists
-    if (imageElement) {
-        if (imageURL) {
-            console.log(`Setting image for ${pagePrefix}:`, imageURL);
-            imageElement.src = imageURL; // Set the image source
-            imageElement.onerror = () => {
-                console.error(`Failed to load image for ${pagePrefix}:`, imageURL);
-                imageElement.alt = `Image failed to load for ${pagePrefix}`; // Set alt text on error
-            };
-        } else {
-            console.warn(`No valid image URL provided for ${pagePrefix}.`);
-            imageElement.alt = `No image available for ${pagePrefix}`; // Handle missing imageURL
-        }
-    } else {
-        console.warn(`Image element for ${pagePrefix} not found.`);
-    }
+    if (titleElement) titleElement.innerText = content; // Populate title
+    if (descriptionElement) descriptionElement.innerText = description; // Populate description
+    if (imageElement) imageElement.src = imageURL; // Populate image
 }
 
 // Fetch the content when the page loads
