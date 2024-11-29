@@ -17,19 +17,19 @@ body {
   padding: 0;
 }
 
+/* General text styles */
 .poppins-bold {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
-
 .courgette-regular {
   font-family: "Courgette", cursive;
   font-weight: 400;
   font-style: normal;
 }
 
-/* Hero Section Styling */
+/* Hero Section Background and Text */
 #hero {
   background-image: url(../assets/breakfast-cereal-7337357_1280.jpg);
   background-size: cover;
@@ -40,7 +40,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  background-position: center;
 }
 
 .overlay {
@@ -55,29 +55,30 @@ body {
 
 .text {
   font-family: "DM Sans", sans-serif;
-  font-size: 18px;
+  font-size: 20px; /* Default font size for larger screens */
   font-weight: 400;
   color: white;
   position: relative;
   max-width: 800px;
   padding: 20px;
   z-index: 1;
-  line-height: 1.5;
+  text-align: center;
+  width: 90%; /* Ensure text stays within the screen width */
 }
 
 .text h1 {
-  font-size: 2.2rem;
+  font-size: 2.5em; /* Default for large screens */
   margin: 20px 0;
 }
 
 .text p {
-  font-size: 1.2rem;
+  font-size: 18px;
   margin-bottom: 20px;
 }
 
 #discover-button {
   background-color: #B60037;
-  color: white;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 700;
   height: 51px;
@@ -93,40 +94,143 @@ body {
   color: white;
 }
 
-/* Home Section Styling */
-#home {
-  text-align: center;
-  background-color: #e9ecef;
+/* Media Queries for Responsiveness */
+
+/* Small devices (mobile phones) */
+@media (max-width: 576px) {
+  body {
+    font-size: 12px; /* Slightly smaller font for mobile */
+  }
+
+  .text {
+    font-size: 16px; /* Reduce text size for small screens */
+    padding: 15px;
+    width: 100%; /* Ensure text doesn't overflow */
+    text-align: center;
+  }
+
+  .text h1 {
+    font-size: 1.8em; /* Smaller h1 for mobile */
+  }
+
+  .text p {
+    font-size: 14px; /* Adjust paragraph text size */
+  }
+
+  #hero {
+    height: 60vh; /* Adjust hero height for smaller screens */
+  }
+
+  #discover-button {
+    width: 150px; /* Make button smaller on mobile */
+  }
 }
 
-#homepage-title {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #333;
+/* Medium devices (tablets) */
+@media (max-width: 768px) {
+  .text {
+    font-size: 18px; /* Adjust text size for tablet screens */
+    padding: 18px;
+  }
+
+  .text h1 {
+    font-size: 2.2em; /* Adjust h1 size for tablets */
+  }
+
+  .text p {
+    font-size: 16px; /* Adjust paragraph text size for tablets */
+  }
+
+  #hero {
+    height: 75vh; /* Adjust hero section height for tablets */
+  }
+
+  #discover-button {
+    width: 180px; /* Adjust button width for tablets */
+  }
 }
 
-#homepage-description {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  color: #555;
+/* Large devices (desktops and above) */
+@media (min-width: 1024px) {
+  .text {
+    font-size: 20px; /* Default font size for large screens */
+  }
+
+  .text h1 {
+    font-size: 2.5em; /* Adjust h1 size for larger screens */
+  }
+
+  .text p {
+    font-size: 18px; /* Default paragraph size for larger screens */
+  }
+
+  #hero {
+    height: 100vh; /* Full height for larger screens */
+  }
+
+  #discover-button {
+    width: 200px; /* Adjust button width for large screens */
+  }
 }
 
-#homepage-image {
-  max-width: 100%;
+/* Additional Section Styles */
+#hero-top {
+  background-color: #2E0000;
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 300px;
+  padding: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.vertical-line {
+  width: 1px;
+  height: 100%;
+  background-color: #573333;
+  margin: 0 auto;
+}
+
+#social-icons a {
+  margin-left: 20px;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+#social-icons a:hover {
+  transform: rotateY(180deg);
+}
+
+#nav-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+#nav-bar img {
+  max-width: 200px;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* About Section Styling */
+#nav-links span a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #2D0000;
+}
+
+/* About Section */
 #about {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px 30px;
+  padding: 100px;
   background-color: #EFEFEF;
   width: 100%;
-  column-gap: 50px;
+  column-gap: 100px;
   min-height: 400px;
 }
 
@@ -181,114 +285,4 @@ footer {
 
 footer p {
   margin: 0;
-}
-
-/* Media Queries for Responsiveness */
-
-/* Small devices (mobile phones) */
-@media (max-width: 576px) {
-  body {
-    font-size: 12px;
-  }
-
-  #hero {
-    padding: 10px;
-    height: auto;
-  }
-
-  .text h1 {
-    font-size: 1.8rem;
-  }
-
-  .text p {
-    font-size: 1rem;
-  }
-
-  #discover-button {
-    width: 100%;
-    font-size: 12px;
-  }
-
-  #about {
-    flex-direction: column;
-    padding: 50px 20px;
-    column-gap: 0;
-  }
-
-  #about-image {
-    width: 80%;
-    height: auto;
-  }
-
-  #homepage-title {
-    font-size: 2rem;
-  }
-
-  #homepage-description {
-    font-size: 1rem;
-  }
-
-  #about-title {
-    font-size: 32px;
-  }
-
-  #about-description {
-    font-size: 14px;
-  }
-}
-
-/* Medium devices (tablets) */
-@media (max-width: 768px) {
-  body {
-    font-size: 13px;
-  }
-
-  #hero {
-    padding: 20px;
-  }
-
-  .text h1 {
-    font-size: 2.5rem;
-  }
-
-  .text p {
-    font-size: 1.2rem;
-  }
-
-  #about {
-    column-gap: 50px;
-  }
-
-  #about-title {
-    font-size: 36px;
-  }
-
-  #about-description {
-    font-size: 15px;
-  }
-}
-
-/* Large devices (desktops and above) */
-@media (min-width: 1024px) {
-  #hero {
-    padding: 20px;
-  }
-
-  .text h1 {
-    font-size: 3.5rem;
-  }
-
-  .text p {
-    font-size: 1.5rem;
-  }
-
-  #about {
-    column-gap: 100px;
-    padding: 100px;
-  }
-
-  #about-image {
-    width: 367px;
-    height: auto;
-  }
 }
