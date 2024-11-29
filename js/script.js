@@ -66,4 +66,5 @@ function populatePage(pagePrefix, content, description, imageURL) {
 }
 
 // Fetch the content when the page loads
-window.onload = fetchContent; // Load content
+document.addEventListener('DOMContentLoaded', fetchContent);
+
