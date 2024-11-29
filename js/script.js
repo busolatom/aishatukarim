@@ -40,11 +40,29 @@ function populatePage(pagePrefix, content, description, imageURL) {
     const descriptionElement = document.getElementById(`${pagePrefix}-description`);
     const imageElement = document.getElementById(`${pagePrefix}-image`);
 
-    if (titleElement) titleElement.innerText = content; // Populate title
-    if (descriptionElement) descriptionElement.innerText = description; // Populate description
-    if (imageElement) imageElement.src = imageURL; // Populate image
+    if (titleElement) {
+        titleElement.innerText = content; // Populate title
+    }
+
+    if (descriptionElement) {
+        descriptionElement.innerText = description; // Populate description
+    }
+
+    // Populate image if URL is valid
+    if (imageElement && imageURL) {
+        console.log(`Setting image for ${pagePrefix}: ${imageURL}`);
+        imageElement.src = imageURL; // Populate image
+        imageElement.onerror = function() {
+            console.error(`Failed to load image for ${pagePrefix}: ${imageURL}`);
+            imageElement.src = 'default-image.jpg'; // Set a fallback image if loading fails
+        };
+    } else {
+        console.warn(`Image URL is invalid or missing for ${pagePrefix}.`);
+        if (imageElement) {
+            imageElement.src = 'default-image.jpg'; // Set a fallback image if no URL is provided
+        }
+    }
 }
 
 // Fetch the content when the page loads
 document.addEventListener('DOMContentLoaded', fetchContent);
-
