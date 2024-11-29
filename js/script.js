@@ -91,3 +91,4 @@ function initializeSwiper() {
 
 // Fetch the content when the page loads
 window.onload = fetchContent; // Load content and initialize swiper
+}
