@@ -22,12 +22,14 @@ body {
   font-weight: 700;
   font-style: normal;
 }
+
 .courgette-regular {
   font-family: "Courgette", cursive;
   font-weight: 400;
   font-style: normal;
 }
 
+/* Hero Section Styling */
 #hero-top {
   background-color: #2E0000;
   color: white;
@@ -76,6 +78,7 @@ body {
   color: #2D0000;
 }
 
+/* Hero Section Background and Text */
 #hero {
   background-image: url(../assets/breakfast-cereal-7337357_1280.jpg);
   background-size: cover;
@@ -111,7 +114,7 @@ body {
 }
 
 .text h1 {
-  font-size: 2emm;
+  font-size: 2em;
   margin: 20px 0;
 }
 
@@ -138,6 +141,7 @@ body {
   color: white;
 }
 
+/* Home Page Styling */
 #home {
   text-align: center;
   background-color: #e9ecef;
@@ -162,6 +166,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* About Page Styling */
 #about {
   display: flex;
   justify-content: center;
@@ -213,26 +218,7 @@ body {
   line-height: 26px;
 }
 
-#reviews {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Footer styling */
+/* Footer Styling */
 footer {
   text-align: center;
   padding: 10px;
@@ -250,86 +236,86 @@ footer p {
 /* Small devices (mobile phones) */
 @media (max-width: 576px) {
   body {
-      font-size: 12px;
+    font-size: 12px;
   }
 
   #hero-top {
-      flex-direction: column;
-      gap: 20px;
-      text-align: center;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
   }
 
   #nav-bar {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .text h1 {
-      font-size: 2em;
+    font-size: 2em;
   }
 
   .text p {
-      font-size: 14px;
+    font-size: 14px;
   }
 
   #about {
-      flex-direction: column;
-      padding: 50px;
+    flex-direction: column;
+    padding: 50px;
   }
 
   #about-image {
-      width: 80%;
-      height: auto;
+    width: 80%;
+    height: auto;
   }
 }
 
 /* Medium devices (tablets) */
 @media (max-width: 768px) {
   body {
-      font-size: 13px;
+    font-size: 13px;
   }
 
   #hero-top {
-      gap: 100px;
+    gap: 100px;
   }
 
   #about {
-      column-gap: 50px;
+    column-gap: 50px;
   }
 
   .text h1 {
-      font-size: 2.5em;
+    font-size: 2.5em;
   }
 
   .text p {
-      font-size: 16px;
+    font-size: 16px;
   }
 }
 
 /* Large devices (desktops and above) */
 @media (min-width: 1024px) {
   #hero-top {
-      gap: 300px;
+    gap: 300px;
   }
 
   #nav-bar {
-      justify-content: space-between;
+    justify-content: space-between;
   }
 
   .text h1 {
-      font-size: 3.5em;
+    font-size: 3.5em;
   }
 
   .text p {
-      font-size: 18px;
+    font-size: 18px;
   }
 
   #about {
-      column-gap: 100px;
-      padding: 100px;
+    column-gap: 100px;
+    padding: 100px;
   }
 
   #about-image {
-      width: 367px;
-      height: auto;
+    width: 367px;
+    height: auto;
   }
 }
