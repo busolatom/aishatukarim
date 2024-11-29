@@ -48,19 +48,19 @@ function populatePage(pagePrefix, content, description, imageURL) {
         descriptionElement.innerText = description; // Populate description
     }
 
-    if (imageElement) {
+    if (imageElement && pagePrefix === 'about') {
         if (imageURL) {
             console.log(`Setting image for ${pagePrefix}: ${imageURL}`);
             imageElement.src = imageURL; // Populate image from the fetched URL
             imageElement.onerror = function () {
                 console.error(`Failed to load image for ${pagePrefix}: ${imageURL}`);
-                // Ensure the fallback image has the correct absolute path
-                imageElement.src = '../assets/pexels-polina-tankilevitch-3872350.jpg'; // Adjust the path if needed for your live environment
+                // Set fallback image specific to the about page
+                imageElement.src = '../assets/pexels-polina-tankilevitch-3872350.jpg'; // Fallback image for about page
             };
         } else {
             console.warn(`Image URL is invalid or missing for ${pagePrefix}. Using static fallback.`);
-            // Provide a fully qualified or correctly referenced fallback image URL
-            imageElement.src = '../assets/pexels-polina-tankilevitch-3872350.jpg';
+            // Set fallback image if no URL is provided for the about page
+            imageElement.src = '../assets/pexels-polina-tankilevitch-3872350.jpg'; // Fallback image for about page
         }
     }
 }
