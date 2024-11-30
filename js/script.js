@@ -68,8 +68,6 @@
 // // Fetch the content when the page loads
 // document.addEventListener('DOMContentLoaded', fetchContent);
 
-
-// Function to fetch data from Google Sheets through backend
 function fetchContent() {
     fetch('https://aishatukarim.vercel.app/api/server') // Make a request to backend API
         .then(response => response.json())
@@ -90,8 +88,8 @@ function fetchContent() {
                 } else if (pageName === 'Contact Us') {
                     populatePage('contact', content, description, imageURL);
                 } else if (pageName.startsWith('Product')) {
-                    // Match product divs with their respective IDs in the HTML
-                    populateProductDiv(index - 3, content, description, imageURL); // Adjust index to match product rows (starts at A4 in CMS)
+                    const productIndex = parseInt(pageName.replace('Product', '')) - 1; // Extract product index
+                    populateProductDiv(productIndex, content, description, imageURL);
                 }
             });
         })
@@ -109,6 +107,7 @@ function fetchContent() {
             }
         });
 }
+
 
 // Helper function to populate content for a page
 function populatePage(pagePrefix, content, description, imageURL) {
