@@ -5,7 +5,7 @@ import { google } from 'googleapis';
 export default async function handler(req, res) {
     const apiKey = process.env.GOOGLE_API_KEY;  // Get Google API key from environment variables
     const sheetId = process.env.SHEET_ID;  // Get Sheet ID from environment variables
-    const range = req.query.range || 'Sheet1!A2:D5';  // Default range if not specified
+    const range = req.query.range || 'Sheet1!A2:D8';  // Default range if not specified
 
     try {
         const sheets = google.sheets({ version: 'v4', auth: apiKey });  // Initialize Google Sheets API client
