@@ -183,7 +183,7 @@ body {
 #about-title {
   color: rgb(38, 50, 70);
   font-family: "DM Sans", sans-serif;
-  font-size: 44px;
+  font-size: 30px;
   font-weight: 400;
 }
 
@@ -325,6 +325,45 @@ font-weight: 700;
   background-color: #2E0000 !important; /* Active dot color */
 }
 
+#contact {
+  display: flex; /* Makes the section a flex container */
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Aligns content vertically */
+  background-color: #333333; /* Background color */
+  color: #fff; /* Text color */
+  padding: 20px; /* Adds padding around the section */
+   /* Adds space at the bottom to avoid overlap on mobile */
+}
+
+/* Ensures the content is centered and laid out horizontally */
+#contact span {
+  display: flex; /* Aligns items in a row */
+  justify-content: center; /* Centers the items horizontally */
+  align-items: center; /* Aligns icons and text vertically */
+  gap: 15px; /* Space between each icon-text pair */
+  font-size: 16px; /* Adjusts font size */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+/* Icon Styles */
+#contact i {
+  font-size: 20px; /* Icon size */
+  color: #FF5733; /* Icon color */
+  margin-right: 8px; /* Adjust the space between icon and text */
+  vertical-align: middle; /* Ensures icons align with the text */
+}
+
+/* Text Styles for Paragraphs */
+#contact p {
+  margin: 0; /* Removes default margin */
+  font-size: 18px; /* Text size */
+  font-weight: bold; /* Makes the heading bold */
+  text-align: center; /* Centers the text */
+  margin-bottom: 0; /* No margin below the paragraph */
+  display: inline-block; /* Ensures paragraph stays inline with icons */
+  vertical-align: middle; /* Aligns text vertically with icons */
+}
+
 
 /* Footer */
 footer {
@@ -412,12 +451,31 @@ footer {
   }
 
   .images-one {
-    height: 60px; /* Smaller image size */
+    height: 50px; /* Smaller image size */
     max-width: 40%; /* Adjust image width */
   }
 
-  .swiper-button-next, .swiper-button-prev {
-    display: none; /* Hide navigation buttons for very small screens */
+  /* .swiper-button-next, .swiper-button-prev { */
+    /* display: none; Hide navigation buttons for very small screens */
+  /* } */
+  #contact {
+    padding: 10px; /* Reduces padding for smaller screens */
+  /* Adjusts bottom margin */
+  }
+
+  #contact span {
+    flex-direction: column; /* Stacks items vertically on mobile */
+    gap: 10px; /* Reduces gap between items */
+    text-align: center; /* Centers text */
+  }
+
+  #contact i {
+    font-size: 18px; /* Smaller icons on mobile */
+    margin-right: 5px; /* Reduces margin between icons and text */
+  }
+
+  #contact p {
+    font-size: 16px; /* Smaller text size on mobile */
   }
 }
 
