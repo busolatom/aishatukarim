@@ -130,16 +130,27 @@ function populatePage(pagePrefix, content, description, imageURL) {
             imageElement.src = imageURL; // Populate image from the fetched URL
             imageElement.onerror = function () {
                 console.error(`Failed to load image for ${pagePrefix}: ${imageURL}`);
-                imageElement.src = '../assets/fallback-image.jpg'; // Set fallback image
+                imageElement.src = getPageFallbackImage(pagePrefix); // Set specific fallback image for each page
             };
         } else {
             console.warn(`Image URL is missing for ${pagePrefix}. Using fallback image.`);
-            imageElement.src = '../assets/fallback-image.jpg'; // Static fallback image
+            imageElement.src = getPageFallbackImage(pagePrefix); // Set specific fallback image for each page
         }
     }
 }
 
-// Helper function to populate existing product divs
+// Function to return specific fallback images for each page
+function getPageFallbackImage(pagePrefix) {
+    const fallbackImages = {
+        // homepage: '../assets/pexels-polina-tankilevitch-3872350.jpg', // Fallback for homepage
+        about: '../assets/pexels-polina-tankilevitch-3872350.jpg'        // Fallback for about page
+        // contact: '../assets/pexels-contact-image.jpg'              // Fallback for contact page
+    };
+
+    return fallbackImages[pagePrefix]; // Default fallback if pagePrefix is not found
+}
+
+// Function to populate existing product divs
 function populateProductDiv(productIndex, title, description, imageURL) {
     const productDiv = document.querySelectorAll('.productdiv')[productIndex];
 
@@ -162,16 +173,28 @@ function populateProductDiv(productIndex, title, description, imageURL) {
                 imageElement.src = imageURL; // Populate image from the fetched URL
                 imageElement.onerror = function () {
                     console.error(`Failed to load image for Product ${productIndex + 1}: ${imageURL}`);
-                    imageElement.src = `../assets/breakfast-cereal-7337357_1280${productIndex + 1}.webp`; // Static fallback for each product
+                    imageElement.src = getFallbackImage(productIndex); // Static fallback for each product
                 };
             } else {
                 console.warn(`Image URL is missing for Product ${productIndex + 1}. Using fallback image.`);
-                imageElement.src = `../assets/breakfast-cereal-7337357_1280${productIndex + 1}.webp`; // Static fallback for each product
+                imageElement.src = getFallbackImage(productIndex); // Static fallback for each product
             }
         }
     } else {
         console.error(`Product div for index ${productIndex} not found.`);
     }
+}
+
+// Function to return specific fallback images for each product
+function getFallbackImage(productIndex) {
+    const fallbackImages = [
+        '../assets/pexels-polina-tankilevitch-3872350.jpg', // Fallback for Product 1
+        '../assets/breakfast-cereal-7337357_1280.jpg',         // Fallback for Product 2
+        '../assets/pexels-polina-tankilevitch-3872350.jpg',          // Fallback for Product 3
+        '../assets/breakfast-cereal-7337357_1280.jpg'          // Fallback for Product 4
+    ];
+
+    return fallbackImages[productIndex]; // Default fallback if index is out of range
 }
 
 // Fetch the content when the page loads
