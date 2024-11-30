@@ -1,5 +1,5 @@
- /* Reset and General Styling */
- * {
+/* Reset and General Styling */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -87,6 +87,7 @@ body {
   width: 200px;
   cursor: pointer;
   margin-top: 20px;
+  text-align: center;
 }
 
 #discover-button a {
@@ -96,7 +97,7 @@ body {
 
 /* Navbar */
 #hero-top {
-  background-color: #2E0000; /* Dark navbar background */
+  background-color: #2E0000;
   color: white;
   width: 100%;
   display: flex;
@@ -128,7 +129,7 @@ body {
 #nav-links span a {
   margin-right: 20px;
   text-decoration: none;
-  color: #2D0000; /* Adjusted navbar link color */
+  color: #2D0000;
 }
 
 /* Social Icons */
@@ -195,55 +196,61 @@ body {
   line-height: 26px;
 }
 
+/* Products Section */
+#products {
+  background-color: white;
+  width: 100%;
+  padding-top: 50px;
+  margin-bottom: 50px;
+}
+
+#sub-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+#sub-header h2 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+#product {
+  background-color: #F8F8F8;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.productdiv {
+  text-align: center;
+  width: 300px;
+  height: auto;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: white;
+}
+
+.productdiv img {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.producttext p {
+  margin-top: 10px;
+}
+
 /* Footer */
 footer {
   text-align: center;
   padding: 10px;
-  background-color: #333; /* Footer background color */
+  background-color: #333;
   color: #fff;
-  margin-top: 20px;
-}
-
-footer p {
-  margin: 0;
-}
-
-#products {
-  background-color: white;
-  width: 100vw;
-  height: 100vh;
-  padding-top: 50px;
-  margin-bottom: 50px;
-}
-#product {
-  background-color: #F8F8F8;
-  width: 100vw;
-  height: 60vh;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 5px;
-  padding: 20px;
-}
-.productdiv {
-  padding-top: 50px;
-  background-color: white;
-  text-align: center;
-  width: 300px;
-  height: 90%;
-  border-radius: 5px;
-  /* margin-left: -5px; */
-}
-.productdiv img {
-   width: 200px;
-   height: 200px;
-   border-radius: 5px;
-}
-#sub-header {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  margin-bottom: 35px;
 }
 
 /* Responsive Design */
@@ -252,7 +259,6 @@ footer p {
 @media (max-width: 576px) {
   body {
     font-size: 12px;
-    overflow-x: hidden;
   }
 
   #hero {
@@ -283,9 +289,8 @@ footer p {
   }
 
   #nav-links span a {
-    white-space: nowrap; /* Prevent wrapping of text */
-    margin-right: 10px; /* Adjust margin for spacing */
-    font-size: 12px; /* Adjust font size for smaller screens */
+    margin-right: 10px;
+    font-size: 12px;
   }
 
   #about {
@@ -298,31 +303,23 @@ footer p {
     margin-bottom: 20px;
   }
 
-  /* Products section adjustments for small screens */
   #product {
-    flex-direction: column !important; /* Force column layout on mobile */
-    height: auto !important; /* Allow product section to adjust to content height */
-    gap: 20px; /* Increased gap for mobile */
-    justify-content: center;
-    min-height: 60vh;
-    padding: 20px; /* Padding to add space inside the product section */
-    box-sizing: border-box;
+    flex-direction: column;
+    gap: 20px;
   }
 
   .productdiv {
-    width: 80% !important; /* Ensure smaller width for mobile */
-    height: 200px !important; /* Set a fixed height for each product div */
-    padding-top: 20px !important; /* Reduced padding for mobile */
-    margin: 10px auto; /* Center-align and create space between product divs */
+    width: 80%;
+    height: auto;
   }
 
   .productdiv img {
-    width: 150px !important; /* Smaller image size for mobile */
-    height: 150px !important;
+    width: 150px;
+    height: 150px;
   }
 
   .producttext p {
-    font-size: 14px !important; /* Smaller text size for mobile */
+    font-size: 14px;
   }
 }
 
@@ -336,84 +333,13 @@ footer p {
     height: 75vh;
   }
 
-  .text {
-    font-size: 18px;
-  }
-
-  #discover-button {
-    width: 180px;
-  }
-
   #about {
-    flex-direction: row;
+    flex-direction: column;
     text-align: center;
   }
 
-  #about-image {
-    margin-bottom: 20px;
-  }
-
-  /* Products section adjustments for tablets */
   #product {
-    flex-direction: row; /* Row layout for tablets */
-    justify-content: center; /* Center align products */
-    gap: 20px; /* More space between products */
-    height: auto; /* Allow product section to adjust to content height */
-    min-height: 60vh;
-    margin-bottom: 30px; /* Space between product and footer */
-  }
-
-  .productdiv {
-    width: 45%; /* Adjust width for tablets */
-    height: 250px; /* Adjust height for tablets */
-    margin: 10px; /* Space between product divs */
-  }
-
-  .productdiv img {
-    width: 180px; /* Adjust image size */
-    height: 180px;
-  }
-
-  .producttext p {
-    font-size: 16px; /* Adjust font size for tablet screens */
-  }
-}
-
-/* Large devices (desktops and above) */
-@media (min-width: 1024px) {
-  body{
-    overflow-x: hidden;
-  }
-  .text {
-    font-size: 20px;
-  }
-
-  #about {
-    flex-direction: row !important; /* Horizontal layout on large screens */
-    text-align: left;
-  }
-
-  /* Products section adjustments for desktops */
-  #product {
-    flex-direction: row; /* Keep products in a row on desktop */
-    justify-content: space-evenly;
-    gap: 20px; /* Space between products */
-    height: 60vh;
-    padding: 20px;
-  }
-
-  .productdiv img {
-     width: 200px;
-     height: 200px;
-     border-radius: 8px;
-  }
-  .productdiv {
-    width: 300px; /* Standard width for desktop */
-    height: 90%;
-  }
-
-  .productdiv img {
-    width: 200px; /* Standard image size for desktop */
-    height: 200px;
+    flex-wrap: wrap;
+    gap: 20px;
   }
 }
