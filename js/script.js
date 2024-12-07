@@ -118,8 +118,8 @@ function populateProductDiv(productIndex, title, description, imageURL) {
 // Function to return specific fallback images for each product
 function getFallbackImage(productIndex) {
     const fallbackImages = [
-        '../assets/pexels-polina-tankilevitch-3872350.jpg', // Fallback for Product 1
-        '../assets/breakfast-cereal-7337357_1280.jpg',         // Fallback for Product 2
+        '../assets/WhatsApp Image 2024-12-04 at 11.45.15.jpeg', // Fallback for Product 1
+        '../assets/WhatsApp Image 2024-12-05 at 06.33.27.jpeg',         // Fallback for Product 2
         '../assets/pexels-polina-tankilevitch-3872350.jpg',          // Fallback for Product 3
         '../assets/breakfast-cereal-7337357_1280.jpg'          // Fallback for Product 4
     ];
